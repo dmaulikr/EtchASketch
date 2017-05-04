@@ -13,6 +13,7 @@
 		35A84E1C1EB266E10098BE0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35A84E1B1EB266E10098BE0F /* Assets.xcassets */; };
 		35A84E1F1EB266E10098BE0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35A84E1D1EB266E10098BE0F /* LaunchScreen.storyboard */; };
 		35A84E271EBA41FA0098BE0F /* Rondo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35A84E261EBA41FA0098BE0F /* Rondo.ttf */; };
+		35A84E2B1EBB6B9B0098BE0F /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A84E2A1EBB6B9B0098BE0F /* CircleSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		35A84E1E1EB266E10098BE0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35A84E201EB266E10098BE0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35A84E261EBA41FA0098BE0F /* Rondo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rondo.ttf; sourceTree = "<group>"; };
+		35A84E2A1EBB6B9B0098BE0F /* CircleSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		35A84E131EB266E10098BE0F /* EtchASketch */ = {
 			isa = PBXGroup;
 			children = (
+				35A84E2A1EBB6B9B0098BE0F /* CircleSlider.swift */,
 				35A84E261EBA41FA0098BE0F /* Rondo.ttf */,
 				35A84E141EB266E10098BE0F /* AppDelegate.swift */,
 				35A84E161EB266E10098BE0F /* ViewController.swift */,
@@ -100,6 +103,7 @@
 					35A84E101EB266E10098BE0F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 3H68RG2SRC;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -143,6 +147,7 @@
 			files = (
 				35A84E171EB266E10098BE0F /* ViewController.swift in Sources */,
 				35A84E151EB266E10098BE0F /* AppDelegate.swift in Sources */,
+				35A84E2B1EBB6B9B0098BE0F /* CircleSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
