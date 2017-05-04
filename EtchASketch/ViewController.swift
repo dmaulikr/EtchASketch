@@ -10,34 +10,34 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var knobVerticalHolder: UIView!
+    @IBOutlet weak var knobHorizontalHolder: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        showSlider()
+        showKnob()
     }
     
-    func showSlider() {
-        let sliderHorizontal = CircleSlider(frame: CGRect(x:self.view.frame.width - 125, y:self.view.frame.height - 125, width:125, height:125))
-        sliderHorizontal.circle_color = UIColor.white
-        sliderHorizontal.touch_color = UIColor.blue
+    func showKnob() {
+        let knobVerticalControl = IOSKnobControl(frame: knobVerticalHolder.bounds)
+        knobVerticalControl!.mode = .continuous
+        knobVerticalControl!.tintColor = UIColor.init(white: 1.0, alpha: 1.0)
+        knobVerticalHolder.addSubview(knobVerticalControl!)
         
-        sliderHorizontal.setSelector(forAction: .touchMoved, target: self, selector: #selector(movedSlider(_:)))
-        
-        sliderHorizontal.makeSlider()
-        self.view.addSubview(sliderHorizontal)
-        print("Width:" , self.view.frame.width)
-        print("Height:" , self.view.frame.height)
-    }
-    
-    func movedSlider(_ rad: AnyObject) {
-        print("Moved slider:", rad)
+        let knobHorizontalControl = IOSKnobControl(frame: knobHorizontalHolder.bounds)
+        knobHorizontalControl!.mode = .continuous
+        knobHorizontalControl!.tintColor = UIColor.init(white: 1.0, alpha: 1.0)
+        knobHorizontalHolder.addSubview(knobHorizontalControl!)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
 }
 
