@@ -23,12 +23,18 @@ class ViewController: UIViewController {
         let knobVerticalControl = IOSKnobControl(frame: knobVerticalHolder.bounds)
         knobVerticalControl!.mode = .continuous
         knobVerticalControl!.tintColor = UIColor.init(white: 1.0, alpha: 1.0)
+        knobVerticalControl?.addTarget(self, action: #selector(knobVerticalChanged), for: .valueChanged)
         knobVerticalHolder.addSubview(knobVerticalControl!)
         
         let knobHorizontalControl = IOSKnobControl(frame: knobHorizontalHolder.bounds)
         knobHorizontalControl!.mode = .continuous
         knobHorizontalControl!.tintColor = UIColor.init(white: 1.0, alpha: 1.0)
         knobHorizontalHolder.addSubview(knobHorizontalControl!)
+    }
+    
+    func knobVerticalChanged(sender: IOSKnobControl) {
+        print("Vertical changed:", sender)
+        print("Position:", sender.position)
     }
 
     override func didReceiveMemoryWarning() {
