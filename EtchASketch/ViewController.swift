@@ -17,10 +17,17 @@ class ViewController: UIViewController {
     var lastPoint = CGPoint.zero
     var lastVerticalKnobPos: Float = 0
     var lastHorizontalKnobPos: Float = 0
+    let xMin: Float = 0
+    let yMin: Float = 0
+    var xMax: Float = 0
+    var yMax: Float = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        xMax = Float(view.frame.size.width)
+        yMax = Float(view.frame.size.height)
         showKnob()
     }
     
@@ -46,10 +53,14 @@ class ViewController: UIViewController {
         let fromP = CGPoint(x: lastPoint.x, y: lastPoint.y)
         var toP = CGPoint(x: lastPoint.x, y: lastPoint.y)
         if(lastVerticalKnobPos < sender.position){
-            toP.y = lastPoint.y - 1
+            if(!(Float(lastPoint.y - 1) < yMin)){
+                toP.y = lastPoint.y - 1
+            }
         }
-        else{
-            toP.y = lastPoint.y + 1
+        else if(lastVerticalKnobPos > sender.position){
+            if(!(Float(lastPoint.y + 1) > yMax)){
+                toP.y = lastPoint.y + 1
+            }
         }
         lastPoint = toP
         lastVerticalKnobPos = sender.position
@@ -60,10 +71,14 @@ class ViewController: UIViewController {
         let fromP = CGPoint(x: lastPoint.x, y: lastPoint.y)
         var toP = CGPoint(x: lastPoint.x, y: lastPoint.y)
         if(lastHorizontalKnobPos < sender.position){
-            toP.x = lastPoint.x + 1
+            if(!(Float(lastPoint.x + 1) > xMax)) {
+                toP.x = lastPoint.x + 1
+            }
         }
-        else{
-            toP.x = lastPoint.x - 1
+        else if(lastHorizontalKnobPos > sender.position){
+            if(!(Float(lastPoint.x - 1) < xMin)) {
+                toP.x = lastPoint.x - 1
+            }
         }
         lastPoint = toP
         lastHorizontalKnobPos = sender.position
@@ -79,7 +94,7 @@ class ViewController: UIViewController {
         context!.addLine(to: CGPoint(x: to.x, y: to.y))
         context!.strokePath()
         print("Drawing:", from.x, from.y, to.x, to.y)
-        print("Frame size:", view.frame.size)
+        print("Frame size:", xMax, yMax)
         
         DrawView.image = UIGraphicsGetImageFromCurrentImageContext()
         DrawView.alpha = 1
