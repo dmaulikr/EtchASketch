@@ -36,7 +36,12 @@ class ViewController: UIViewController {
         knobVerticalControl!.mode = .continuous
         knobVerticalControl!.circular = true
         knobVerticalControl!.clockwise = true
-        knobVerticalControl!.tintColor = UIColor.init(white: 1.0, alpha: 1.0)
+//        knobVerticalControl!.setFill(UIColor.white, for: .normal)
+//        knobVerticalControl!.setTitleColor(UIColor.lightGray, for: .normal)
+        knobVerticalControl!.setFill(UIColor.white, for: .normal)
+        knobVerticalControl!.setFill(UIColor.lightGray, for: .highlighted)
+        knobVerticalControl!.setTitleColor(UIColor.white, for: .normal)
+        knobVerticalControl!.setTitleColor(UIColor.lightGray, for: .highlighted)
         knobVerticalControl!.addTarget(self, action: #selector(knobVerticalChanged), for: .valueChanged)
         knobVerticalHolder.addSubview(knobVerticalControl!)
         
@@ -44,7 +49,10 @@ class ViewController: UIViewController {
         knobHorizontalControl!.mode = .continuous
         knobHorizontalControl!.circular = true
         knobHorizontalControl!.clockwise = true
-        knobHorizontalControl!.tintColor = UIColor.init(white: 1.0, alpha: 1.0)
+        knobHorizontalControl!.setFill(UIColor.white, for: .normal)
+        knobHorizontalControl!.setFill(UIColor.lightGray, for: .highlighted)
+        knobHorizontalControl!.setTitleColor(UIColor.white, for: .normal)
+        knobHorizontalControl!.setTitleColor(UIColor.lightGray, for: .highlighted)
         knobHorizontalControl!.addTarget(self, action: #selector(knobHorizontalChanged), for: .valueChanged)
         knobHorizontalHolder.addSubview(knobHorizontalControl!)
     }
@@ -93,8 +101,8 @@ class ViewController: UIViewController {
         context!.move(to: CGPoint(x: from.x, y: from.y))
         context!.addLine(to: CGPoint(x: to.x, y: to.y))
         context!.strokePath()
-        print("Drawing:", from.x, from.y, to.x, to.y)
-        print("Frame size:", xMax, yMax)
+//        print("Drawing:", from.x, from.y, to.x, to.y)
+//        print("Frame size:", xMax, yMax)
         
         DrawView.image = UIGraphicsGetImageFromCurrentImageContext()
         DrawView.alpha = 1
