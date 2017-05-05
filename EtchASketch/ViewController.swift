@@ -108,6 +108,12 @@ class ViewController: UIViewController {
         DrawView.alpha = 1
         UIGraphicsEndImageContext()
     }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if(event?.subtype == UIEventSubtype.motionShake){
+            DrawView.image = nil
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
