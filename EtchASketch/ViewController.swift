@@ -36,12 +36,10 @@ class ViewController: UIViewController {
         knobVerticalControl!.mode = .continuous
         knobVerticalControl!.circular = true
         knobVerticalControl!.clockwise = true
-//        knobVerticalControl!.setFill(UIColor.white, for: .normal)
-//        knobVerticalControl!.setTitleColor(UIColor.lightGray, for: .normal)
         knobVerticalControl!.setFill(UIColor.white, for: .normal)
         knobVerticalControl!.setFill(UIColor.lightGray, for: .highlighted)
-        knobVerticalControl!.setTitleColor(UIColor.white, for: .normal)
-        knobVerticalControl!.setTitleColor(UIColor.lightGray, for: .highlighted)
+        knobVerticalControl!.setTitleColor(UIColor.black, for: .normal)
+        knobVerticalControl!.setTitleColor(UIColor.white, for: .highlighted)
         knobVerticalControl!.addTarget(self, action: #selector(knobVerticalChanged), for: .valueChanged)
         knobVerticalHolder.addSubview(knobVerticalControl!)
         
@@ -51,8 +49,8 @@ class ViewController: UIViewController {
         knobHorizontalControl!.clockwise = true
         knobHorizontalControl!.setFill(UIColor.white, for: .normal)
         knobHorizontalControl!.setFill(UIColor.lightGray, for: .highlighted)
-        knobHorizontalControl!.setTitleColor(UIColor.white, for: .normal)
-        knobHorizontalControl!.setTitleColor(UIColor.lightGray, for: .highlighted)
+        knobHorizontalControl!.setTitleColor(UIColor.black, for: .normal)
+        knobHorizontalControl!.setTitleColor(UIColor.white, for: .highlighted)
         knobHorizontalControl!.addTarget(self, action: #selector(knobHorizontalChanged), for: .valueChanged)
         knobHorizontalHolder.addSubview(knobHorizontalControl!)
     }
@@ -61,13 +59,13 @@ class ViewController: UIViewController {
         let fromP = CGPoint(x: lastPoint.x, y: lastPoint.y)
         var toP = CGPoint(x: lastPoint.x, y: lastPoint.y)
         if(lastVerticalKnobPos < sender.position){
-            if(!(Float(lastPoint.y - 1) < yMin)){
-                toP.y = lastPoint.y - 1
+            if(!(Float(lastPoint.y - 1.5) < yMin)){
+                toP.y = lastPoint.y - 1.5
             }
         }
         else if(lastVerticalKnobPos > sender.position){
-            if(!(Float(lastPoint.y + 1) > yMax)){
-                toP.y = lastPoint.y + 1
+            if(!(Float(lastPoint.y + 1.5) > yMax)){
+                toP.y = lastPoint.y + 1.5
             }
         }
         lastPoint = toP
@@ -79,13 +77,13 @@ class ViewController: UIViewController {
         let fromP = CGPoint(x: lastPoint.x, y: lastPoint.y)
         var toP = CGPoint(x: lastPoint.x, y: lastPoint.y)
         if(lastHorizontalKnobPos < sender.position){
-            if(!(Float(lastPoint.x + 1) > xMax)) {
-                toP.x = lastPoint.x + 1
+            if(!(Float(lastPoint.x + 1.5) > xMax)) {
+                toP.x = lastPoint.x + 1.5
             }
         }
         else if(lastHorizontalKnobPos > sender.position){
-            if(!(Float(lastPoint.x - 1) < xMin)) {
-                toP.x = lastPoint.x - 1
+            if(!(Float(lastPoint.x - 1.5) < xMin)) {
+                toP.x = lastPoint.x - 1.5
             }
         }
         lastPoint = toP
