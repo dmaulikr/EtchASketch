@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var knobVerticalHolder: UIView!
     @IBOutlet weak var knobHorizontalHolder: UIView!
     @IBOutlet weak var DrawView: UIImageView!
+    @IBOutlet weak var optionView: UIView!
     
     var lastPoint = CGPoint.zero
     var lastVerticalKnobPos: Float = 0
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         xMax = Float(view.frame.size.width)
         yMax = Float(view.frame.size.height)
+        optionView.layer.cornerRadius = 10
         showKnob()
     }
     
@@ -110,9 +112,40 @@ class ViewController: UIViewController {
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(event?.subtype == UIEventSubtype.motionShake){
             DrawView.image = nil
+            optionView.layer.position.x = -305
         }
     }
 
+    @IBAction func showOptionView(_ sender: AnyObject) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.optionView.layer.position.x = self.view.bounds.width / 2
+            self.knobVerticalHolder.alpha = 0.5
+            self.knobHorizontalHolder.alpha = 0.5
+            self.DrawView.alpha = 0.5
+            self.knobVerticalHolder.isUserInteractionEnabled = false
+            self.knobHorizontalHolder.isUserInteractionEnabled = false
+        })
+    }
+    
+    @IBAction func hideOptionView(_ sender: AnyObject) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.optionView.layer.position.x = -305
+            self.knobVerticalHolder.alpha = 1
+            self.knobHorizontalHolder.alpha = 1
+            self.DrawView.alpha = 1
+            self.knobVerticalHolder.isUserInteractionEnabled = true
+            self.knobHorizontalHolder.isUserInteractionEnabled = true
+        })
+    }
+    
+    @IBAction func saveDrawing(_ sender: AnyObject) {
+        hideOptionView(self)
+    }
+    
+    @IBAction func shareDrawing(_ sender: AnyObject) {
+        hideOptionView(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

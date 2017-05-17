@@ -281,6 +281,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3H68RG2SRC;
 				INFOPLIST_FILE = EtchASketch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = shanel262.EtchASketch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -297,6 +298,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3H68RG2SRC;
 				INFOPLIST_FILE = EtchASketch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = shanel262.EtchASketch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -324,6 +326,7 @@
 				35A84E251EB266E10098BE0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
