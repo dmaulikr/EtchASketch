@@ -139,7 +139,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveDrawing(_ sender: AnyObject) {
-        hideOptionView(self)
+//        var screenshot = self.view.snapshotView(afterScreenUpdates: true)
+//        var screenshot = DrawView.snapshotView(afterScreenUpdates: true)
+        let bounds = self.DrawView.layer.bounds
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
+        self.view.drawHierarchy(in: bounds, afterScreenUpdates: true)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+//        hideOptionView(self)
     }
     
     @IBAction func shareDrawing(_ sender: AnyObject) {
