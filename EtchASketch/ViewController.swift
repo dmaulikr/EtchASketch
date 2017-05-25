@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  EtchASketch
 //
-//  Created by Shane Lacey on 27/04/2017.
+//  Created by Shane Lacey on 25/05/2017.
 //  Copyright © 2017 Shane Lacey. All rights reserved.
 //
 
@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         xMax = Float(view.frame.size.width)
         yMax = Float(view.frame.size.height)
         optionView.layer.cornerRadius = 10
@@ -101,8 +100,6 @@ class ViewController: UIViewController {
         context!.move(to: CGPoint(x: from.x, y: from.y))
         context!.addLine(to: CGPoint(x: to.x, y: to.y))
         context!.strokePath()
-//        print("Drawing:", from.x, from.y, to.x, to.y)
-//        print("Frame size:", xMax, yMax)
         
         DrawView.image = UIGraphicsGetImageFromCurrentImageContext()
         DrawView.alpha = 1
@@ -112,7 +109,6 @@ class ViewController: UIViewController {
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(event?.subtype == UIEventSubtype.motionShake){
             DrawView.image = nil
-            optionView.layer.position.x = -305
         }
     }
 
