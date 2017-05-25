@@ -139,8 +139,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveDrawing(_ sender: AnyObject) {
-//        var screenshot = self.view.snapshotView(afterScreenUpdates: true)
-//        var screenshot = DrawView.snapshotView(afterScreenUpdates: true)
         hideOptionView(self)
         let bounds = self.DrawView.layer.bounds
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
@@ -151,11 +149,17 @@ class ViewController: UIViewController {
     
     @IBAction func shareDrawing(_ sender: AnyObject) {
         hideOptionView(self)
+        let bounds = self.DrawView.layer.bounds
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
+        self.view.drawHierarchy(in: bounds, afterScreenUpdates: true)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        let activityViewController = UIActivityViewController(activityItems: [screenshot!], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override var prefersStatusBarHidden : Bool {
